@@ -1,4 +1,6 @@
 from page.home_page import HomePage
+from page.login_page import LoginPage
+from page.mine_page import MinePage
 
 
 class Page:
@@ -8,3 +10,11 @@ class Page:
     @property
     def mine(self):
         return HomePage(self.driver)
+
+    @property
+    def login(self):
+        return MinePage(self.driver)
+
+    @property
+    def login_in(self):
+        return LoginPage(self.driver)
