@@ -15,3 +15,5 @@ class TestLogin:
         self.page.login_in.input_username("13800138006")
         self.page.login_in.input_password("123456")
         self.page.login_in.click_login_in()
+        res = self.page.login_in.find_toast("成功")
+        print(res)

@@ -8,6 +8,7 @@ def init_driver():
     desired_caps['platformName'] = 'Android'
     desired_caps['platformVersion'] = '5.1'
     desired_caps['deviceName'] = '192.168.56.101:5555'
+    # toast
     desired_caps['automationName'] = 'Uiautomator2'
     # app信息
     desired_caps['appPackage'] = 'com.tpshop.malls'
