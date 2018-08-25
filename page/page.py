@@ -12,9 +12,9 @@ class Page:
         return HomePage(self.driver)
 
     @property
-    def login(self):
+    def login_member(self):
         return MinePage(self.driver)
 
     @property
-    def login_in(self):
+    def login(self):
         return LoginPage(self.driver)

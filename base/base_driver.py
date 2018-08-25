@@ -13,7 +13,9 @@ def init_driver():
     # app信息
     desired_caps['appPackage'] = 'com.tpshop.malls'
     desired_caps['appActivity'] = '.SPMainActivity'
-    # 中文
+    # 权限
+    # desired_caps['noReset'] = True
+    # # 中文
     desired_caps['unicodeKeyboard'] = True
     desired_caps['resetKeyboard'] = True
     return webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
