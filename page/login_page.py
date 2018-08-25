@@ -19,3 +19,7 @@ class LoginPage(BaseAction):
 
     def click_login_in(self):
         self.click(self.login_in_butt)
+
+    # 判断登录可见
+    def is_invisible(self):
+        self.is_login_butt_invisible(self.login_in_butt)

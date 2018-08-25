@@ -6,12 +6,12 @@ class BaseAction:
     def __init__(self, driver):
         self.driver = driver
 
-    def find_element(self, location, wait=10, time=1):
+    def find_element(self, location, wait=10.0, time=1.0):
         by, value = location
         wait = WebDriverWait(self.driver, wait, time)
         return wait.until(lambda x: x.find_element(by, value))
 
-    def find_elements(self, location, wait=10, time=1):
+    def find_elements(self, location, wait=10.0, time=1.0):
         by, value = location
         wait = WebDriverWait(self.driver, wait, time)
         return wait.until(lambda x: x.find_elements(by, value))
@@ -37,5 +37,15 @@ class BaseAction:
         """
         message = "//*[contains(@text,'" + message + "')]"  # 使用包含的方式定位
 
-        element = WebDriverWait(self.driver, timeout, 0.1).until(lambda x: x.find_element(By.XPATH, message))
+        element = self.find_element((By.XPATH, message), timeout, 0.1)
         return element.text
+
+    def is_exists(self, massage):
+        try:
+            self.find_toast(massage)
+            return True
+        except Exception:
+            return False
+
+    def is_login_butt_invisible(self, location):
+        return self.find_element(location).get_attribute("enabled") == "true"
